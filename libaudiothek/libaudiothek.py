@@ -145,6 +145,16 @@ class AudiothekEntry:
 
 
 class Audiothek:
+    """
+    A class used to request data from the ARD Audiothek API
+
+    Methods
+    -------
+    search(term)
+        Searches the Audiothek for the given string and returns the results.
+
+    """
+
     def __process_items(self, items: any) -> list[AudiothekEntry]:
         entries = []
         for node in items:
@@ -181,6 +191,19 @@ class Audiothek:
         return entries
 
     def search(self, term: str) -> list[AudiothekEntry]:
+        """
+        Searches the Audiothek for the given string and returns the results.
+
+        Parameter
+        ---------
+        term : str
+            The string to search for in the Audiothek
+
+        Returns
+        -------
+        list[AudiothekEntry]
+            A list of AudiothekEntry returned by the API
+        """
 
         search = op.search(query=term)
 
@@ -209,6 +232,3 @@ class Audiothek:
         res.append(program_sets)
 
         return res
-
-
-# pprint.pprint(search("Kalk und Welk"))
