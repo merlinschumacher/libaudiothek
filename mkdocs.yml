@@ -1,0 +1,15 @@
+site_name: libaudiothek documentation 
+site_description: The documentation for libaudiothek, a library to access the ARD Audiothek API.
+repo_url: https://github.com/merlinschumacher/libaudiothek
+# include_homepage_in_sidebar: true
+theme:
+    name: material 
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings
+nav:
+  - Home: index.md
+  - libaudiothek: libaudiothek.md
+  - Audiothek GraphQL schema: audiothek_schema.md
+  - Issues: https://github.com/merlinschumacher/libaudiothek/issues
