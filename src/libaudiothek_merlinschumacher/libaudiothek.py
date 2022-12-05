@@ -1,11 +1,12 @@
-"""libaudiothek &mdash; a Python library to access the audiothek.de API
+"""libaudiothek &mdash; A Python library to access the audiothek.de API
 This library provides a Python interface to the ARD Audiothek API.
 """
 from datetime import datetime
 from enum import Enum
-from sgqlc.operation import Operation
+
 from audiothek_schema import audiothek_schema as schema
 from sgqlc.endpoint.http import HTTPEndpoint
+from sgqlc.operation import Operation
 
 op = Operation(schema.query_type)
 
