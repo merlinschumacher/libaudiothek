@@ -31,7 +31,7 @@ class AudiothekEntryMedia:
     A class used to represent a media file associated with an item.
 
     Args:
-        url (str): An url that points to the media file
+        media_url (str): An url that points to the media file
     """
 
     def __init__(self, media_url: str) -> None:
@@ -48,9 +48,9 @@ class AudiothekEntryMedia:
 class AudiothekEntry:
     """A class used to represent an entry found in the Audiothek
     Args:
-        id (int): The ID of the item as it is returned by Audiothek
+        entry_id (int): The ID of the item as it is returned by Audiothek
         title (str): The title of the item
-        type (AudiothekEntryType): The type of the entry
+        entry_type (AudiothekEntryType): The type of the entry
         program_id (int): The ID of the program associated with the item
         publish_date (datetime): The date when an element was published
         publisher (str): The station that published the media
@@ -69,9 +69,9 @@ class AudiothekEntry:
                  media: list[AudiothekEntryMedia] = None) -> None:
         """ Initializes an AudiothekEntry
         Args:
-            id (int): The ID of the item as it is returned by Audiothek
+            entry_id (int): The ID of the item as it is returned by Audiothek
             title (str): The title of the item
-            type (AudiothekEntryType): The type of the entry
+            entry_type (AudiothekEntryType): The type of the entry
             program_id (int): The ID of the program associated with the item
             publish_date (datetime): The date when an element was published
             publisher (str): The station that published the media
@@ -123,6 +123,11 @@ class AudiothekSearchResult:
         self.items: list[AudiothekEntry] = items
         self.program_sets: list[AudiothekEntry] = program_sets
         self.result_count: int = len(items) + len(program_sets)
+
+    items = [AudiothekEntry]
+    program_sets = [AudiothekEntry]
+    result_count = int
+
 
 
 class Audiothek:
@@ -176,6 +181,13 @@ class Audiothek:
         Returns:
             list[AudiothekEntry]
                 A list of AudiothekEntry returned by the API
+        
+        Examples:
+            Searching for "WDR" will return an AudiothekSearchResult with multiple AudiothekEntry objects
+            >>> audiothek = Audiothek()
+            >>> res = audiothek.search("WDR")
+            >>> print(res.result_count)
+            >>> print(res.items[0])
         """
 
         search = self.op.search(query=term)
