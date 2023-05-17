@@ -1,0 +1,1956 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for libaudiothek, a library to access the ARD Audiothek API.">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../audiothek_schema/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
+    
+    
+      
+        <title>libaudiothek - libaudiothek documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-libaudiothek-classes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="libaudiothek documentation" class="md-header__button md-logo" aria-label="libaudiothek documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            libaudiothek documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              libaudiothek
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/merlinschumacher/libaudiothek" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="libaudiothek documentation" class="md-nav__button md-logo" aria-label="libaudiothek documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    libaudiothek documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/merlinschumacher/libaudiothek" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          libaudiothek
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        libaudiothek
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek" class="md-nav__link">
+    libaudiothek.libaudiothek
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.Audiothek" class="md-nav__link">
+    Audiothek
+  </a>
+  
+    <nav class="md-nav" aria-label="Audiothek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.Audiothek.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntry" class="md-nav__link">
+    AudiothekEntry
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekEntry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntry.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryMedia" class="md-nav__link">
+    AudiothekEntryMedia
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekEntryMedia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryMedia.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+    <nav class="md-nav" aria-label="__init__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryMedia.__init__--parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType" class="md-nav__link">
+    AudiothekEntryType
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekEntryType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.CATEGORY" class="md-nav__link">
+    CATEGORY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.COLLECTION" class="md-nav__link">
+    COLLECTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.ITEM" class="md-nav__link">
+    ITEM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.PROGRAM" class="md-nav__link">
+    PROGRAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekSearchResult" class="md-nav__link">
+    AudiothekSearchResult
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekSearchResult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekSearchResult.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audiothek_schema/" class="md-nav__link">
+        Audiothek GraphQL schema
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/merlinschumacher/libaudiothek/issues" class="md-nav__link">
+        Issues
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek" class="md-nav__link">
+    libaudiothek.libaudiothek
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.Audiothek" class="md-nav__link">
+    Audiothek
+  </a>
+  
+    <nav class="md-nav" aria-label="Audiothek">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.Audiothek.search" class="md-nav__link">
+    search()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntry" class="md-nav__link">
+    AudiothekEntry
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekEntry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntry.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryMedia" class="md-nav__link">
+    AudiothekEntryMedia
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekEntryMedia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryMedia.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+    <nav class="md-nav" aria-label="__init__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryMedia.__init__--parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType" class="md-nav__link">
+    AudiothekEntryType
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekEntryType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.CATEGORY" class="md-nav__link">
+    CATEGORY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.COLLECTION" class="md-nav__link">
+    COLLECTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.ITEM" class="md-nav__link">
+    ITEM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekEntryType.PROGRAM" class="md-nav__link">
+    PROGRAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekSearchResult" class="md-nav__link">
+    AudiothekSearchResult
+  </a>
+  
+    <nav class="md-nav" aria-label="AudiothekSearchResult">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#libaudiothek.libaudiothek.AudiothekSearchResult.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="the-libaudiothek-classes">The libaudiothek classes</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="libaudiothek.libaudiothek"></a>
+  <div class="doc doc-contents first">
+  
+      <p>libaudiothek &mdash; A Python library to access the audiothek.de API
+This library provides a Python interface to the ARD Audiothek API.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="libaudiothek.libaudiothek.Audiothek" class="doc doc-heading">
+        <code>Audiothek</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A class used to request data from the ARD Audiothek API</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Audiothek</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class used to request data from the ARD Audiothek API&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">:</span> <span class="n">HTTPEndpoint</span> <span class="o">=</span> <span class="n">HTTPEndpoint</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">:</span> <span class="n">Operation</span> <span class="o">=</span> <span class="n">Operation</span><span class="p">(</span><span class="n">schema</span><span class="o">.</span><span class="n">query_type</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__process_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]:</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">entry</span><span class="p">:</span> <span class="n">AudiothekEntry</span> <span class="o">=</span> <span class="n">AudiothekEntry</span><span class="p">(</span>
+                <span class="n">entry_id</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">entry_type</span><span class="o">=</span><span class="n">AudiothekEntryType</span><span class="o">.</span><span class="n">ITEM</span><span class="p">,</span>
+                <span class="n">program_id</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">program_set</span><span class="o">.</span><span class="n">publication_service</span><span class="o">.</span><span class="n">row_id</span><span class="p">,</span>
+                <span class="n">publish_date</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">publish_date</span><span class="p">,</span>
+                <span class="n">publisher</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">program_set</span><span class="o">.</span><span class="n">publication_service</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">organization</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">program_set</span><span class="o">.</span><span class="n">publication_service</span><span class="o">.</span><span class="n">organization_name</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">audio</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">audios</span><span class="p">:</span>
+                <span class="n">entry</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">AudiothekEntryMedia</span><span class="p">(</span><span class="n">audio</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="k">def</span> <span class="nf">__process_program_sets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]:</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="n">entry</span><span class="p">:</span> <span class="n">AudiothekEntry</span> <span class="o">=</span> <span class="n">AudiothekEntry</span><span class="p">(</span>
+                <span class="n">entry_id</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">entry_type</span><span class="o">=</span><span class="n">AudiothekEntryType</span><span class="o">.</span><span class="n">PROGRAM</span><span class="p">,</span>
+                <span class="n">program_id</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="n">publish_date</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">last_item_added</span><span class="p">,</span>
+                <span class="n">publisher</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">publication_service</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">organization</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">publication_service</span><span class="o">.</span><span class="n">organization_name</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">entries</span>
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AudiothekSearchResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Searches the Audiothek for the given string and returns the results.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        term (str): The string to search for in the Audiothek</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list[AudiothekEntry]</span>
+<span class="sd">                A list of AudiothekEntry returned by the API</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            Searching for &quot;WDR&quot; will return an AudiothekSearchResult with multiple AudiothekEntry objects</span>
+<span class="sd">            &gt;&gt;&gt; audiothek = Audiothek()</span>
+<span class="sd">            &gt;&gt;&gt; res = audiothek.search(&quot;WDR&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; print(res.result_count)</span>
+<span class="sd">            &gt;&gt;&gt; print(res.items[0])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">search</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+
+        <span class="c1"># retrieve the fields needed for the items</span>
+        <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">__fields__</span><span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;publish_date&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;synopsis&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">)</span>
+        <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">audios</span><span class="p">()</span>
+
+        <span class="c1"># retrieve the fields needed for the program sets</span>
+        <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">program_set</span><span class="o">.</span><span class="n">__fields__</span><span class="p">(</span>
+            <span class="s1">&#39;row_id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;synopsis&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;sharing_url&#39;</span><span class="p">)</span>
+        <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">program_set</span><span class="p">()</span><span class="o">.</span><span class="n">publication_service</span><span class="p">()</span>
+        <span class="n">search</span><span class="o">.</span><span class="n">program_sets</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">__fields__</span><span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;synopsis&#39;</span><span class="p">,</span> <span class="s1">&#39;sharing_url&#39;</span><span class="p">,</span> <span class="s1">&#39;last_item_added&#39;</span><span class="p">)</span>
+        <span class="n">search</span><span class="o">.</span><span class="n">program_sets</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">publication_service</span><span class="p">()</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">)</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__process_items</span><span class="p">(</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+        <span class="n">program_sets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__process_program_sets</span><span class="p">(</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">program_sets</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">:</span> <span class="n">AudiothekSearchResult</span> <span class="o">=</span> <span class="n">AudiothekSearchResult</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">program_sets</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="libaudiothek.libaudiothek.Audiothek.search" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">search</span><span class="p">(</span><span class="n">term</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Searches the Audiothek for the given string and returns the results.</p>
+      <p>term (str): The string to search for in the Audiothek</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekSearchResult" href="#libaudiothek.libaudiothek.AudiothekSearchResult">AudiothekSearchResult</a></code>
+          </td>
+          <td><p>list[AudiothekEntry]
+A list of AudiothekEntry returned by the API</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <p>Searching for "WDR" will return an AudiothekSearchResult with multiple AudiothekEntry objects</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">audiothek</span> <span class="o">=</span> <span class="n">Audiothek</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">audiothek</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;WDR&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">result_count</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AudiothekSearchResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Searches the Audiothek for the given string and returns the results.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    term (str): The string to search for in the Audiothek</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list[AudiothekEntry]</span>
+<span class="sd">            A list of AudiothekEntry returned by the API</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Searching for &quot;WDR&quot; will return an AudiothekSearchResult with multiple AudiothekEntry objects</span>
+<span class="sd">        &gt;&gt;&gt; audiothek = Audiothek()</span>
+<span class="sd">        &gt;&gt;&gt; res = audiothek.search(&quot;WDR&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(res.result_count)</span>
+<span class="sd">        &gt;&gt;&gt; print(res.items[0])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">search</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">term</span><span class="p">)</span>
+
+    <span class="c1"># retrieve the fields needed for the items</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">__fields__</span><span class="p">(</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;publish_date&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;synopsis&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">)</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">audios</span><span class="p">()</span>
+
+    <span class="c1"># retrieve the fields needed for the program sets</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">program_set</span><span class="o">.</span><span class="n">__fields__</span><span class="p">(</span>
+        <span class="s1">&#39;row_id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;synopsis&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;sharing_url&#39;</span><span class="p">)</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">program_set</span><span class="p">()</span><span class="o">.</span><span class="n">publication_service</span><span class="p">()</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">program_sets</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">__fields__</span><span class="p">(</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;synopsis&#39;</span><span class="p">,</span> <span class="s1">&#39;sharing_url&#39;</span><span class="p">,</span> <span class="s1">&#39;last_item_added&#39;</span><span class="p">)</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">program_sets</span><span class="p">()</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">publication_service</span><span class="p">()</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="p">)</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__process_items</span><span class="p">(</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+    <span class="n">program_sets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__process_program_sets</span><span class="p">(</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">program_sets</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">:</span> <span class="n">AudiothekSearchResult</span> <span class="o">=</span> <span class="n">AudiothekSearchResult</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">program_sets</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="libaudiothek.libaudiothek.AudiothekEntry" class="doc doc-heading">
+        <code>AudiothekEntry</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A class used to represent an entry found in the Audiothek</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>entry_id</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The ID of the item as it is returned by Audiothek</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>title</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The title of the item</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>entry_type</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntryType" href="#libaudiothek.libaudiothek.AudiothekEntryType">AudiothekEntryType</a></code>
+          </td>
+          <td><p>The type of the entry</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>program_id</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The ID of the program associated with the item</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>publish_date</code></td>
+          <td>
+                <code><span title="datetime.datetime">datetime</span></code>
+          </td>
+          <td><p>The date when an element was published</p></td>
+          <td>
+                <code>datetime.fromtimestamp(0)</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>publisher</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The station that published the media</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>organization</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The organization (Sendeanstalt) that published the media</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>media</code></td>
+          <td>
+                <code>list[<a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntryMedia" href="#libaudiothek.libaudiothek.AudiothekEntryMedia">AudiothekEntryMedia</a>]</code>
+          </td>
+          <td><p>A list of media elements linked to the element</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AudiothekEntry</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class used to represent an entry found in the Audiothek</span>
+<span class="sd">    Args:</span>
+<span class="sd">        entry_id (int): The ID of the item as it is returned by Audiothek</span>
+<span class="sd">        title (str): The title of the item</span>
+<span class="sd">        entry_type (AudiothekEntryType): The type of the entry</span>
+<span class="sd">        program_id (int): The ID of the program associated with the item</span>
+<span class="sd">        publish_date (datetime): The date when an element was published</span>
+<span class="sd">        publisher (str): The station that published the media</span>
+<span class="sd">        organization (str): The organization (Sendeanstalt) that published the media</span>
+<span class="sd">        media (list[AudiothekEntryMedia]): A list of media elements linked to the element</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">entry_type</span><span class="p">:</span> <span class="n">AudiothekEntryType</span><span class="p">,</span>
+                 <span class="n">program_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">publish_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+                 <span class="n">publisher</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">organization</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">media</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntryMedia</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initializes an AudiothekEntry</span>
+<span class="sd">        Args:</span>
+<span class="sd">            entry_id (int): The ID of the item as it is returned by Audiothek</span>
+<span class="sd">            title (str): The title of the item</span>
+<span class="sd">            entry_type (AudiothekEntryType): The type of the entry</span>
+<span class="sd">            program_id (int): The ID of the program associated with the item</span>
+<span class="sd">            publish_date (datetime): The date when an element was published</span>
+<span class="sd">            publisher (str): The station that published the media</span>
+<span class="sd">            organization (str): The organization (Sendeanstalt) that published the media</span>
+<span class="sd">            media (list[AudiothekEntryMedia]): A list of media elements linked to the element</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">entry_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry_type</span><span class="p">:</span> <span class="n">AudiothekEntryType</span> <span class="o">=</span> <span class="n">entry_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">program_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">program_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">publish_date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publisher</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">publisher</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">organization</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">organization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">media</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntryMedia</span><span class="p">]</span> <span class="o">=</span> <span class="n">media</span> <span class="ow">or</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_type</span><span class="si">}</span><span class="s1"> - Title: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s1">, Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_type</span><span class="si">}</span><span class="s1">, ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_id</span><span class="si">}</span><span class="s1">, Publication date: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span><span class="si">}</span><span class="s1">&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_type</span><span class="si">}</span><span class="s1"> - Title: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s1">, Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_type</span><span class="si">}</span><span class="s1">, ID: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_id</span><span class="si">}</span><span class="s1">, Publication date: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span><span class="si">}</span><span class="s1">&#39;</span>
+
+    <span class="n">entry_id</span> <span class="o">=</span> <span class="nb">int</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="nb">str</span>
+    <span class="n">entry_type</span> <span class="o">=</span> <span class="n">AudiothekEntryType</span>
+    <span class="n">program_id</span> <span class="o">=</span> <span class="nb">int</span>
+    <span class="n">publish_date</span> <span class="o">=</span> <span class="n">datetime</span>
+    <span class="n">publisher</span> <span class="o">=</span> <span class="nb">str</span>
+    <span class="n">organization</span> <span class="o">=</span> <span class="nb">str</span>
+    <span class="n">media</span> <span class="o">=</span> <span class="p">[</span><span class="n">AudiothekEntryMedia</span><span class="p">]</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="nb">str</span>
+    <span class="n">synopsis</span> <span class="o">=</span> <span class="nb">str</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekEntry.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">entry_id</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">entry_type</span><span class="p">,</span> <span class="n">program_id</span><span class="p">,</span> <span class="n">publish_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">publisher</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">organization</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">media</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initializes an AudiothekEntry</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>entry_id</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The ID of the item as it is returned by Audiothek</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>title</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The title of the item</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>entry_type</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntryType" href="#libaudiothek.libaudiothek.AudiothekEntryType">AudiothekEntryType</a></code>
+          </td>
+          <td><p>The type of the entry</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>program_id</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The ID of the program associated with the item</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>publish_date</code></td>
+          <td>
+                <code><span title="datetime.datetime">datetime</span></code>
+          </td>
+          <td><p>The date when an element was published</p></td>
+          <td>
+                <code>datetime.fromtimestamp(0)</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>publisher</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The station that published the media</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>organization</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The organization (Sendeanstalt) that published the media</p></td>
+          <td>
+                <code>&#39;&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>media</code></td>
+          <td>
+                <code>list[<a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntryMedia" href="#libaudiothek.libaudiothek.AudiothekEntryMedia">AudiothekEntryMedia</a>]</code>
+          </td>
+          <td><p>A list of media elements linked to the element</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+             <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+             <span class="n">entry_type</span><span class="p">:</span> <span class="n">AudiothekEntryType</span><span class="p">,</span>
+             <span class="n">program_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+             <span class="n">publish_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+             <span class="n">publisher</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+             <span class="n">organization</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+             <span class="n">media</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntryMedia</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Initializes an AudiothekEntry</span>
+<span class="sd">    Args:</span>
+<span class="sd">        entry_id (int): The ID of the item as it is returned by Audiothek</span>
+<span class="sd">        title (str): The title of the item</span>
+<span class="sd">        entry_type (AudiothekEntryType): The type of the entry</span>
+<span class="sd">        program_id (int): The ID of the program associated with the item</span>
+<span class="sd">        publish_date (datetime): The date when an element was published</span>
+<span class="sd">        publisher (str): The station that published the media</span>
+<span class="sd">        organization (str): The organization (Sendeanstalt) that published the media</span>
+<span class="sd">        media (list[AudiothekEntryMedia]): A list of media elements linked to the element</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">entry_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">entry_id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">title</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">entry_type</span><span class="p">:</span> <span class="n">AudiothekEntryType</span> <span class="o">=</span> <span class="n">entry_type</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">program_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">program_id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">publish_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">publish_date</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">publisher</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">publisher</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">organization</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">organization</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">media</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntryMedia</span><span class="p">]</span> <span class="o">=</span> <span class="n">media</span> <span class="ow">or</span> <span class="p">[]</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="libaudiothek.libaudiothek.AudiothekEntryMedia" class="doc doc-heading">
+        <code>AudiothekEntryMedia</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A class used to represent a media file associated with an item.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>media_url</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>An url that points to the media file</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AudiothekEntryMedia</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class used to represent a media file associated with an item.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        media_url (str): An url that points to the media file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">media_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        url (str): The url of the media file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">media_url</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="nb">str</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekEntryMedia.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">media_url</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <h5 id="libaudiothek.libaudiothek.AudiothekEntryMedia.__init__--parameters">Parameters</h5>
+<p>url (str): The url of the media file</p>
+
+      <details class="quote">
+        <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">media_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    url (str): The url of the media file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">media_url</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="libaudiothek.libaudiothek.AudiothekEntryType" class="doc doc-heading">
+        <code>AudiothekEntryType</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="enum.Enum">Enum</span></code></p>
+
+  
+      <p>A enum class used to represent the type of an AudiothekEntry.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AudiothekEntryType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A enum class used to represent the type of an AudiothekEntry.&quot;&quot;&quot;</span>
+    <span class="n">ITEM</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a single item&quot;&quot;&quot;</span>
+    <span class="n">PROGRAM</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a program containing multiple items&quot;&quot;&quot;</span>
+    <span class="n">CATEGORY</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a category of multiple programs&quot;&quot;&quot;</span>
+    <span class="n">COLLECTION</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a collection of multiple programs&quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekEntryType.CATEGORY" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">CATEGORY</span> <span class="o">=</span> <span class="mi">2</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Represents a category of multiple programs</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekEntryType.COLLECTION" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">COLLECTION</span> <span class="o">=</span> <span class="mi">3</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Represents a collection of multiple programs</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekEntryType.ITEM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">ITEM</span> <span class="o">=</span> <span class="mi">0</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Represents a single item</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekEntryType.PROGRAM" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">PROGRAM</span> <span class="o">=</span> <span class="mi">1</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Represents a program containing multiple items</p>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="libaudiothek.libaudiothek.AudiothekSearchResult" class="doc doc-heading">
+        <code>AudiothekSearchResult</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>The result of a search of the Audiothek API</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>items</code></td>
+          <td>
+                <code>list[<a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntry" href="#libaudiothek.libaudiothek.AudiothekEntry">AudiothekEntry</a>]</code>
+          </td>
+          <td><p>A list of items found by the search</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>program_sets</code></td>
+          <td>
+                <code>list[<a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntry" href="#libaudiothek.libaudiothek.AudiothekEntry">AudiothekEntry</a>]</code>
+          </td>
+          <td><p>A list of programs found by the search</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>result_count</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The total number of results found by the search</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <details class="quote">
+          <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AudiothekSearchResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The result of a search of the Audiothek API</span>
+<span class="sd">        Args:</span>
+<span class="sd">            items (list[AudiothekEntry]): A list of items found by the search</span>
+<span class="sd">            program_sets (list[AudiothekEntry]): A list of programs found by the search</span>
+<span class="sd">            result_count (int): The total number of results found by the search</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">],</span> <span class="n">program_sets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes an AudiothekSearchResult</span>
+<span class="sd">        Args:</span>
+<span class="sd">            items (list[AudiothekEntry]): A list of items found by the search</span>
+<span class="sd">            program_sets (list[AudiothekEntry]): A list of programs found by the search</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">program_sets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="n">program_sets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">program_sets</span><span class="p">)</span>
+
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span>
+    <span class="n">program_sets</span> <span class="o">=</span> <span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span>
+    <span class="n">result_count</span> <span class="o">=</span> <span class="nb">int</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="libaudiothek.libaudiothek.AudiothekSearchResult.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">program_sets</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initializes an AudiothekSearchResult</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>items</code></td>
+          <td>
+                <code>list[<a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntry" href="#libaudiothek.libaudiothek.AudiothekEntry">AudiothekEntry</a>]</code>
+          </td>
+          <td><p>A list of items found by the search</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>program_sets</code></td>
+          <td>
+                <code>list[<a class="autorefs autorefs-internal" title="libaudiothek.libaudiothek.AudiothekEntry" href="#libaudiothek.libaudiothek.AudiothekEntry">AudiothekEntry</a>]</code>
+          </td>
+          <td><p>A list of programs found by the search</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>src/libaudiothek/libaudiothek.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">],</span> <span class="n">program_sets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes an AudiothekSearchResult</span>
+<span class="sd">    Args:</span>
+<span class="sd">        items (list[AudiothekEntry]): A list of items found by the search</span>
+<span class="sd">        program_sets (list[AudiothekEntry]): A list of programs found by the search</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">program_sets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AudiothekEntry</span><span class="p">]</span> <span class="o">=</span> <span class="n">program_sets</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">result_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">program_sets</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
