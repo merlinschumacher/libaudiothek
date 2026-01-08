@@ -25,5 +25,5 @@ pyyaml_env_tag==0.1
 requests==2.31.0
 sgqlc==16.1
 six==1.16.0
-urllib3==1.26.13
+urllib3==2.6.3
 watchdog==2.2.0
